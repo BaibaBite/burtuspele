@@ -1,0 +1,73 @@
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color:#fff1e6;
+}
+.page{
+    width:auto;
+    margin:20px auto;
+}
+.Header{
+    padding: 20px;
+    background-color: #fde2e4;
+}
+.header-title{
+    margin:0;
+    font-size: 24px;
+    color:#d4c4d2;
+    text-align:center;
+    text-decoration:none;
+}
+.header-subtitle{
+    margin:0;
+    font-size: 16px;
+    color:#d4d4d4;
+    text-align:center;
+}
+.nav{
+    text-align:center;
+}
+.nav-link{
+    display: inline-block;
+    padding: 8px 12px;
+    color:#bee1e6;
+    text-decoration:none;
+    font-weight: 600;
+}
+/*Pseido klase ietvaram*/
+.nav-link:hover{
+    background-color:#fde2e4;
+    color:#788789;
+}
+.content{
+    padding:20px;
+}
+.burti{
+    display: inline-block;
+    margin: 3px;
+    background-color:#dfd5dd94;
+    width: 100px;
+    height: 100px;
+    border: 2px solid rgb(161, 159, 159);
+    border-radius: 8px;
+    box-shadow: 5px 5px 5px grey;
+    text-align: center;
+    font-size:62px;
+    color:#858383;
+    transition-duration: 0.3s;
+}
+.burti:hover{
+    background-color: rgb(66, 238, 209);
+    color:#757373;
+    border: 3px solid rgb(161, 159, 159);
+    box-shadow: 7px 7px 5px grey;
+}
+.burti:active{
+    background-color: rgb(56, 219, 198);
+    color:#636161;
+    border: 3px solid rgb(161, 159, 159);
+    box-shadow: 2px 2px 2px grey;
+    transform: translateY(4px);
+}
