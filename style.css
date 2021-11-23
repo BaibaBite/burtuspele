@@ -42,7 +42,14 @@ body{
     color:#788789;
 }
 .content{
+    display: flex;
     padding:20px;
+}
+.burtu-koferis{
+    width: 50%;
+}
+.bilde{
+    width: 50%;
 }
 .burti{
     display: inline-block;
