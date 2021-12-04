@@ -26,20 +26,30 @@ body{
     color:#d4d4d4;
     text-align:center;
 }
+button{
+    padding: 0;
+    border: none;
+    background: none;
+}
 .nav{
+    /*lai novietotu navigāciju loga apakšā
+    position: fixed;
+    bottom: 0;*/
     text-align:center;
+    overflow: hidden;
+    background-color:#fde2e4;
 }
 .nav-link{
     display: inline-block;
     padding: 8px 12px;
-    color:#bee1e6;
+    color:#788789;
     text-decoration:none;
     font-weight: 600;
 }
 /*Pseido klase ietvaram*/
 .nav-link:hover{
-    background-color:#fde2e4;
-    color:#788789;
+    /*background-color:#fde2e4;*/
+    color:#bee1e6;
 }
 .content{
     display: flex;
@@ -77,4 +87,8 @@ body{
     border: 3px solid rgb(161, 159, 159);
     box-shadow: 2px 2px 2px grey;
     transform: translateY(4px);
+}
+.Footer{
+    /*position: fixed;*/
+    bottom: 0;
 }

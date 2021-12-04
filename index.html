@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burtu spēle</title>
+    <title>Burtu spēle mazajiem</title>
 </head>
 <body>
     <div class="page">
@@ -14,12 +14,12 @@
             <h2 class="header-subtitle">Burtu spēle mazajiem</h2>
         </div>
         <div class="nav">
-            <a class="nav-link" href="spele.html">SPĒLE</a>
-            <a class="nav-link" href="noteikumi.html">NOTEIKUMI</a>
-            <a class="nav-link" href="top.html">TOP</a>
-            <a class="nav-link" href="autors.html">PAR AUTORU</a>
+            <button class="nav-link" onclick="atvertSadalu('sakums')">SĀKUMS</button>
+            <button class="nav-link" onclick="atvertSadalu('noteikumi')">NOTEIKUMI</button>
+            <button class="nav-link" onclick="atvertSadalu('spele')">SPĒLE</button>
+            <button class="nav-link" onclick="atvertSadalu('top')">TOP</button>
         </div><!--Beidzas galvene un navigācijas pogas-->
-        <div class="content">
+        <div id="sakums" class="content nodala">
             <div class="content-title">
                 <h1>LAIPNI LŪGTI!</h1>
             </div>
@@ -29,6 +29,83 @@
             </div>
             <div id="poga-sakt"><button><a href="spele.html">SĀKT SPĒLI!</a></button></div>
         </div><!--lapas satura beigas-->
+        <div id="noteikumi" class="content nodala">
+            <div class="content-title">
+                <h1>NOTEIKUMI</h1>
+            </div>
+            <div class="content-text">
+                <p>NOSKAIDRO, CIK LABI TU ZINI BURTUS!</p>
+                <p>SAKĀRTO BURTUS PAREIZĀ SECĪBĀ, LAI IEGŪTU ATTĒLĀ REDZAMĀS LIETAS NOSAUKUMU.</p>
+                <p>PAR KATRU PAREIZU VĀRDU 10 PUNKTI.</p>
+            </div>
+        </div>
+        <div id="spele" class="content nodala">
+            <div class="content-title">
+                <h1>NOTEIKUMI</h1>
+            </div>
+             <!--Te sākas alfabēta saraksts-->
+             <div class="burtu-koferis">
+                <div class="burti">A</div>
+                <div class="burti">Ā</div>
+                <div class="burti">B</div>
+                <div class="burti">C</div>
+                <div class="burti">Č</div>
+                <div class="burti">D</div>
+                <div class="burti">E</div>
+                <div class="burti">Ē</div>
+                <div class="burti">F</div>
+                <div class="burti">G</div>
+                <div class="burti">Ģ</div>
+                <div class="burti">H</div>
+                <div class="burti">I</div>
+                <div class="burti">Ī</div>
+                <div class="burti">J</div>
+                <div class="burti">K</div>
+                <div class="burti">Ķ</div>
+                <div class="burti">L</div>
+                <div class="burti">Ļ</div>
+                <div class="burti">M</div>
+                <div class="burti">N</div>
+                <div class="burti">Ņ</div>
+                <div class="burti">O</div>
+                <div class="burti">P</div>
+                <div class="burti">R</div>
+                <div class="burti">S</div>
+                <div class="burti">Š</div>
+                <div class="burti">T</div>
+                <div class="burti">U</div>
+                <div class="burti">Ū</div>
+                <div class="burti">V</div>
+                <div class="burti">Z</div>
+                <div class="burti">Ž</div>
+            </div> 
+            <div class="bilde">
+                <!--Pēc nejaušības principa ģenerēta bilde kādam alfabēta burtam-->
+                <img src="A.png">
+            </div>
+        </div>
+        <div id="top" class="content nodala">
+            <div class="content-title">
+                <h1>TOP 10</h1>
+            </div>
+            <div class="content-text">
+                <p>šEIT BŪS REDZAMS TOP 10 SPĒLĒTĀJU SARAKSTS</p>
+            </div>
+        </div>
+        <div class="Footer">
+            <h1 class="footer-title">SPĒLES AUTORS: BAIBA BITE</h1>
+            <h2 class="footer-subtitle">START IT 2021 KURSI</h2>
+        </div>
     </div>
+    <script>
+        function atvertSadalu(sadalasID) {
+          var i;
+          var x = document.getElementsByClassName("nodala");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          document.getElementById(sadalasID).style.display = "block";  
+        }
+        </script>
 </body>
 </html>
