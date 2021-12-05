@@ -1,16 +1,28 @@
 /*krāsu palete: https://coolors.co/fbf8cc-fde4cf-ffcfd2-f1c0e8-cfbaf0-a3c4f3-90dbf4-8eecf5-98f5e1-b9fbc0 */
 body{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
     margin:0;
+    padding: 0;
+    overflow: hidden;
     font-family: Arial, sans-serif;
     font-size: 15px;
     line-height: 1.6;
     color:#fff1e6;
 }
 .page{
+    grid-column: 1/4;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
     width:auto;
     margin:20px auto;
+    color:#fff1e6;
 }
 .Header{
+    grid-column: 1/4;
     padding: 20px;
     background-color: #fde2e4;
 }
@@ -36,6 +48,7 @@ button{
     /*lai novietotu navigāciju loga apakšā
     position: fixed;
     bottom: 0;*/
+    grid-column: 1/4;
     text-align:center;
     overflow: hidden;
     background-color:#fde2e4;
@@ -53,11 +66,60 @@ button{
     color:#bee1e6;
 }
 .content{
-    display: flex;
-    padding:20px;
+    /*display: flex;*/
+    grid-column: 1/4;
+    margin: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    background-color: white;
+    /*justify-content: center;
+    align-items: center;*/
+    text-align: center;
 }
 .burtu-koferis{
-    width: 50%;
+    /*width: 50%;*/
+    grid-column: 1/4;
+    /*padding: 30px;*/
+    margin: 100px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /*margin: 0 auto;
+    margin-top: 30px;
+    margin-bottom: 40px;*/
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.viltigs{
+    grid-column: 2;
+    color:#858383;
+    font-size: 16px;
+    font-weight: :100;
+}
+input.tukss{
+    grid-column: 2;
+    color:wheat;
+    outline:none;
+    border-radius: 10px;
+    border: solid 2px #dfd5dd94;
+    font-size: 16px;
+    padding-left:25px;
+}
+
+input.uzmini:hover, input.padoms:hover{cursor: pointer;}
+
+input.uzmini{
+    grid-column: 2;
+    margin-bottom:20px;
+    margin-top: 20px;
+    color:#858383;
+    background-color: #fde2e4;
+    border-radius: 20px;
+    outline: none;
+    border: solid 2px #dfd5dd94;
+    font-size: 14px;
+    text-align: center;
 }
 .bilde{
     width: 50%;
@@ -89,7 +151,18 @@ button{
     box-shadow: 2px 2px 2px grey;
     transform: translateY(4px);
 }
+.pazinojums{
+    width: 90%;
+    justify-self: center;
+    border-radius: 20px;
+    padding: 5px;
+    font-size: 16px;
+    color: #636161;
+    display: none;
+}
+
 .Footer{
+    grid-column: 1/4;
     position: relative;
     width:auto;
     left: 0;
