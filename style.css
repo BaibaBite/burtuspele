@@ -1,3 +1,4 @@
+/*krāsu palete: https://coolors.co/fbf8cc-fde4cf-ffcfd2-f1c0e8-cfbaf0-a3c4f3-90dbf4-8eecf5-98f5e1-b9fbc0 */
 body{
     margin:0;
     font-family: Arial, sans-serif;
@@ -15,8 +16,8 @@ body{
 }
 .header-title{
     margin:0;
-    font-size: 24px;
-    color:#d4c4d2;
+    font-size: 60px;
+    color:#796676;
     text-align:center;
     text-decoration:none;
 }
@@ -89,6 +90,11 @@ button{
     transform: translateY(4px);
 }
 .Footer{
-    /*position: fixed;*/
+    position: relative;
+    width:auto;
+    left: 0;
     bottom: 0;
+    padding: 20px;
+    background-color: #fde2e4;
+    color:#d4c4d2;
 }
