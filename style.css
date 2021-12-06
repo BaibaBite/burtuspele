@@ -162,7 +162,7 @@ input.uzmini{
 }
 
 .Footer{
-    grid-column: 1/4;
+    /*grid-column: 1/4;*/
     position: relative;
     width:auto;
     left: 0;
