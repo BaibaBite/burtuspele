@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="vue.min.js"></script>
     <title>Burtu spēle mazajiem</title>
 </head>
 <body>
@@ -116,6 +117,86 @@
           }
           document.getElementById(sadalasID).style.display = "block";  
         }
-        </script>
+        var app=new Vue({
+            el:'#page',
+            data:
+            {
+                allWords:[
+                    {title: "AUTOBUSS", img: "atteli/A.png"},
+                    {title: "ĀBOLS", img: "atteli/ā.jpg"},
+                    {title: "BALONS", img: "atteli/b.png"},
+                    {title: "CĀLIS", img: "atteli/c.png"},
+                    {title: "ČIEKURS", img: "atteli/č.jpg"},
+                    {title: "DINOZAURS", img: "atteli/d.png"},
+                    {title: "EZIS", img: "atteli/e.jpg"},
+                    {title: "ĒRGLIS", img: "atteli/ē.png"},
+                    {title: "FORMULA", img: "atteli/f.png"},
+                    {title: "GLIEMEZIS", img: "atteli/g.png"},
+                    {title: "ĢITĀRA", img: "atteli/ģ.png"},
+                    {title: "HAIZIVS", img: "atteli/h.png"},
+                    {title: "IRBE", img: "atteli/i.png"},
+                    {title: "ĪKŠĶIS", img: "atteli/ī.png"},
+                    {title: "JŪRNIEKS", img: "atteli/j.jpg"},
+                    {title: "KROKODILS", img: "atteli/k.png"},
+                    {title: "ĶIRZAKA", img: "atteli/ķ.jpg"},
+                    {title: "LAPSA", img: "atteli/l.png"},
+                    {title: "ĻAUNDARIS", img: "atteli/ļ.png"},
+                    {title: "MOTOCIKLS", img: "atteli/m.png"},
+                    {title: "NĪLZIRGS", img: "atteli/n.jpg"},
+                    {title: "ŅAUDULIS", img: "atteli/ņ.png"},
+                    {title: "ODS", img: "atteli/o.png"},
+                    {title: "PŪĶIS", img: "atteli/p.png"},
+                    {title: "RITENS", img: "atteli/r.png"},
+                    {title: "SAULE", img: "atteli/s.png"},
+                    {title: "ŠOKOLĀDE", img: "atteli/š.png"},
+                    {title: "TĪĢERIS", img: "atteli/t.png"},
+                    {title: "UGUNS", img: "atteli/u.png"},
+                    {title: "ŪSAS", img: "atteli/ū.png"},
+                    {title: "VALIS", img: "atteli/v.png"},
+                    {title: "ZĀBAKS", img: "atteli/z.png"},
+                    {title: "ŽURKA", img: "atteli/ž.png"}
+                ],
+            newWord:"",
+            newImage:"",
+            viltigsVards:"",
+            gameContinue: true,
+            answered:[] //atlasa atrisinātos vārdus
+
+            },
+        methods:{
+            getRandomWord()
+            {
+                if(this.allWords.length>0)//nosacījums pārtrauks darboties, kad visi vārdi būs atminēti
+                {
+                    let n=Math.floor(Math.random()*this.allWords.length);//pēc nejaušības principa ģenerē skaitli, lai izvēlētos vārdu no masīva
+                    
+                    this.newWord=this.allWords[n].title;// nejauši izvēlētā masīva indeksa vārds
+                    this.newImage=this.allWords[n].img;// nejauši izvēlētā masīva indeksa attēls
+
+                    this.allWords.splice(n,1);// noņem izvēlēto vārdu no apgabala, lai tas spēles laikā neatkārtojas
+
+                    this.viltigsVards=this.scramble(this.newWord.split(""));//pārvērš nejauši izvēlētā indeksa vārdu par burtu masīvu un izpilda burtu secības sajaukšanas f-ciju
+
+
+                }
+                else
+                {
+                    this.gameContinue=false;//Aptur spēli līdzko visi vārdi ir atrisināti
+                }
+            },
+            scramble(arr)
+            {
+                let viltigs=arr.sort();//sajauc burtus
+                    viltigs=viltigs.reverse();//apgriež burtu pozīcijas
+                return viltigs.join("");//izvada apvienoto vārdu simbolu virkni
+
+            }
+        },
+        created()
+        {
+            this.getRandomWord();
+        }
+        });
+    </script>
 </body>
 </html>
