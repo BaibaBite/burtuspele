@@ -57,8 +57,8 @@
                 <span class="pazinojums piezime-viens">LŪDZU IERAKSTI ATBILDI!</span>
                 <span class="pazinojums piezime-divi">AK VAI! NEPAREIZA ATBILDE. MĒĢINI VĒLREIZ!</span>
                 <span class="pazinojums piezime-tris">SUPER! ŠĪ IR PAREIZĀ ATBILDE!</span>
-                <img class="padoms-att" :src="newImage">
-                <input @click="hint" type="submit" class="padoms" value="PADOMS?">
+                <img class="padoms-att" src="">
+                <input click="hint" type="submit" class="padoms" value="PADOMS?">
             </div>
         </div>
         
@@ -147,7 +147,6 @@
             let newImage=words[number].img;// nejauši izvēlētā masīva indeksa attēls
             //console.log(random.split(""));
             return random;
-            return newImage;
         }
 
         const jumbleWord=(el)=>{
