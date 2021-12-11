@@ -86,10 +86,6 @@
           }
           document.getElementById(sadalasID).style.display = "block";  
         }
-        // var app=new Vue({
-        //     el:'#page',
-        //     data:
-        //     {
         
         //sākas spēles loga JavaScript
         const inital=document.querySelector('.viltigs');//start - izvada spēles logā tekstu un ģenerēto vārdu
@@ -159,14 +155,14 @@
         btn.addEventListener('click', function(){
             if (!game){
                 game=true;
-                inital.style.color="darkred";
+                // inital.style.color="darkred";
 
-                btn.textContent="Guess Word";
+                btn.textContent="MINĒT";
                 guess.classList.toggle('tukss');
                 newV=createWord();
                 randomV=jumbkeWord(newV.split(""));
                 console.log(randomV);
-                inital.innerHTML='Arrange the word \''+ randomV +'\'';
+                inital.innerHTML='SAKĀRTO BURTUS <br/>'+ randomV;
                 }
 
                 else{
@@ -175,7 +171,7 @@
                         console.log('correct');
                         game=false;
                         inital.innerHTML='SUPER! ' +newV+ ' IR PAREIZĀ ATBILDE.';
-                        inital.style.color='darkviolet';
+                        // inital.style.color='darkviolet';
                         sc+=5;
                         score.innerHTML=sc;
                         guess.classList.toggle('tukss');
@@ -184,7 +180,7 @@
                     else{
                         console.log('Nepariezi');
                         inital.innerHTML="MĒĢINI VĒLREIZ! " +randomV;
-                        inital.style.color='red';
+                        // inital.style.color='red';
                         btn.innerHTML='Vēlreiz';
                         guess.value="";
                         guess.classList.toggle('tukss');
