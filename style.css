@@ -107,9 +107,9 @@ input.tukss{
     padding-left:25px;
 }
 
-input.uzmini:hover, input.padoms:hover{cursor: pointer;}
+.uzmini:hover, input.padoms:hover{cursor: pointer;}/*peles kursora izskats*/
 
-input.uzmini{
+.uzmini{
     grid-column: 2;
     margin-bottom:20px;
     margin-top: 20px;

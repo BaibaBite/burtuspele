@@ -53,7 +53,7 @@
                 </div>
                 <p class="viltigs">VĀRDS:</p>
                 <input type="text" class="tukss">
-                <input type="submit" class="uzmini" value="IESNIEGT">
+                <button class="uzmini">SĀKT</button>
                 <span class="pazinojums piezime-viens">LŪDZU IERAKSTI ATBILDI!</span>
                 <span class="pazinojums piezime-divi">AK VAI! NEPAREIZA ATBILDE. MĒĢINI VĒLREIZ!</span>
                 <span class="pazinojums piezime-tris">SUPER! ŠĪ IR PAREIZĀ ATBILDE!</span>
@@ -174,7 +174,7 @@
                     if (inputWord==newV){
                         console.log('correct');
                         game=false;
-                        inital.innerHTML='Super! Tu atbildēji pareizi. It is ${newV}';
+                        inital.innerHTML='SUPER! ' +newV+ ' IR PAREIZĀ ATBILDE.';
                         inital.style.color='darkviolet';
                         sc+=5;
                         score.innerHTML=sc;
@@ -183,7 +183,7 @@
                     }
                     else{
                         console.log('Nepariezi');
-                        inital.innerHTML="Varbūt veiksies nākamajā reizē! '${randomV}'";
+                        inital.innerHTML="MĒĢINI VĒLREIZ! " +randomV;
                         inital.style.color='red';
                         btn.innerHTML='Vēlreiz';
                         guess.value="";
