@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="style.css">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="vue.min.js"></script>
     <title>Burtu spēle mazajiem</title>
 </head>
 <body>
@@ -20,6 +19,7 @@
             <button class="nav-link" onclick="atvertSadalu('spele')">SPĒLE</button>
             <button class="nav-link" onclick="atvertSadalu('top')">TOP</button>
         </div><!--Beidzas galvene un navigācijas pogas-->
+        
         <div id="sakums" class="content nodala">
             <div class="content-title">
                 <h1>LAIPNI LŪGTI!</h1>
@@ -30,6 +30,7 @@
             </div>
             <div id="poga-sakt"><button><a href="spele.html">SĀKT SPĒLI!</a></button></div>
         </div><!--lapas satura beigas-->
+        
         <div id="noteikumi" class="content nodala">
             <div class="content-title">
                 <h1>NOTEIKUMI</h1>
@@ -40,12 +41,17 @@
                 <p>PAR KATRU PAREIZU VĀRDU 10 PUNKTI.</p>
             </div>
         </div>
+        
         <div id="spele" class="content nodala">
             <div class="content-title">
                 <h1>CIK DAUDZ VĀRDU TU VARĒSI UZMINĒT?</h1>
             </div>
             <div class="burtu-koferis">
-                <p class="viltigs">VĀRDS: {{viltigsVards}}</p>
+                <div class="score">
+                    Rezultāts
+                    <h2 class="score-1">25</h2>
+                </div>
+                <p class="viltigs">VĀRDS:</p>
                 <input type="text" class="tukss">
                 <input type="submit" class="uzmini" value="IESNIEGT">
                 <span class="pazinojums piezime-viens">LŪDZU IERAKSTI ATBILDI!</span>
@@ -54,47 +60,8 @@
                 <img class="padoms-att" src="">
                 <input type="submit" class="padoms" value="PADOMS?">
             </div>
-             <!-- Te sākas alfabēta saraksts -->
-             <!-- <div class="burtu-koferis">
-                <div class="burti">A</div>
-                <div class="burti">Ā</div>
-                <div class="burti">B</div>
-                <div class="burti">C</div>
-                <div class="burti">Č</div>
-                <div class="burti">D</div>
-                <div class="burti">E</div>
-                <div class="burti">Ē</div>
-                <div class="burti">F</div>
-                <div class="burti">G</div>
-                <div class="burti">Ģ</div>
-                <div class="burti">H</div>
-                <div class="burti">I</div>
-                <div class="burti">Ī</div>
-                <div class="burti">J</div>
-                <div class="burti">K</div>
-                <div class="burti">Ķ</div>
-                <div class="burti">L</div>
-                <div class="burti">Ļ</div>
-                <div class="burti">M</div>
-                <div class="burti">N</div>
-                <div class="burti">Ņ</div>
-                <div class="burti">O</div>
-                <div class="burti">P</div>
-                <div class="burti">R</div>
-                <div class="burti">S</div>
-                <div class="burti">Š</div>
-                <div class="burti">T</div>
-                <div class="burti">U</div>
-                <div class="burti">Ū</div>
-                <div class="burti">V</div>
-                <div class="burti">Z</div>
-                <div class="burti">Ž</div>
-            </div> 
-            <div class="bilde"-->
-                <!--Pēc nejaušības principa ģenerēta bilde kādam alfabēta burtam-->
-                <!-- <img src="atteli/A.png">
-            </div> --> -->
         </div>
+        
         <div id="top" class="content nodala">
             <div class="content-title">
                 <h1>TOP 10</h1>
@@ -103,12 +70,14 @@
                 <p>šEIT BŪS REDZAMS TOP 10 SPĒLĒTĀJU SARAKSTS</p>
             </div>
         </div>
+        
         <div class="Footer">
             <h1 class="footer-title">SPĒLES AUTORS: BAIBA BITE</h1>
             <h2 class="footer-subtitle">START IT 2021 KURSI</h2>
         </div>
     </div>
     <script>
+        //f-cija, kas pēc navigācijas pogas nospiešanas atver atbilstošo klasi un paslēpj pārējās
         function atvertSadalu(sadalasID) {
           var i;
           var x = document.getElementsByClassName("nodala");
@@ -117,11 +86,24 @@
           }
           document.getElementById(sadalasID).style.display = "block";  
         }
-        var app=new Vue({
-            el:'#page',
-            data:
-            {
-                allWords:[
+        // var app=new Vue({
+        //     el:'#page',
+        //     data:
+        //     {
+        
+        //sākas spēles loga JavaScript
+        const inital=document.querySelector('.viltigs');//start - izvada spēles logā tekstu un ģenerēto vārdu
+        const guess=document.querySelector('.tukss');//input
+        const btn=document.querySelector('.uzmini');//btn - poga, lai apstiprinātu darbības
+        let score=document.querySelector('.score-1');
+        score.innerHTML=0;
+        let sc=0;
+        let game=false;
+        let newV="";
+        let randomV="";
+
+        //vārdu masīvs
+        const words=[
                     {title: "AUTOBUSS", img: "atteli/A.png"},
                     {title: "ĀBOLS", img: "atteli/ā.jpg"},
                     {title: "BALONS", img: "atteli/b.png"},
@@ -155,48 +137,102 @@
                     {title: "VALIS", img: "atteli/v.png"},
                     {title: "ZĀBAKS", img: "atteli/z.png"},
                     {title: "ŽURKA", img: "atteli/ž.png"}
-                ],
-            newWord:"",
-            newImage:"",
-            viltigsVards:"",
-            gameContinue: true,
-            answered:[] //atlasa atrisinātos vārdus
+                ];
 
-            },
-        methods:{
-            getRandomWord()
-            {
-                if(this.allWords.length>0)//nosacījums pārtrauks darboties, kad visi vārdi būs atminēti
-                {
-                    let n=Math.floor(Math.random()*this.allWords.length);//pēc nejaušības principa ģenerē skaitli, lai izvēlētos vārdu no masīva
-                    
-                    this.newWord=this.allWords[n].title;// nejauši izvēlētā masīva indeksa vārds
-                    this.newImage=this.allWords[n].img;// nejauši izvēlētā masīva indeksa attēls
-
-                    this.allWords.splice(n,1);// noņem izvēlēto vārdu no apgabala, lai tas spēles laikā neatkārtojas
-
-                    this.viltigsVards=this.scramble(this.newWord.split(""));//pārvērš nejauši izvēlētā indeksa vārdu par burtu masīvu un izpilda burtu secības sajaukšanas f-ciju
-
-
-                }
-                else
-                {
-                    this.gameContinue=false;//Aptur spēli līdzko visi vārdi ir atrisināti
-                }
-            },
-            scramble(arr)
-            {
-                let viltigs=arr.sort();//sajauc burtus
-                    viltigs=viltigs.reverse();//apgriež burtu pozīcijas
-                return viltigs.join("");//izvada apvienoto vārdu simbolu virkni
-
-            }
-        },
-        created()
-        {
-            this.getRandomWord();
+        const createWord=()=>{
+            let number=Math.floor(Math.random()*words.length);
+            let random=words[number].title;
+            //console.log(random.split(""));
+            return random;
         }
-        });
+
+        const jumbkeWord=(el)=>{
+            for (let i=el.length - 1; i >=0; i--){
+                let temp = el[i];
+                let j=Math.floor(Math.random()*(i+1));
+                el[i]=el[j];
+                el[j]=temp;
+            }
+            return el.join("");
+        }
+
+        btn.addEventListener('click', function(){
+            if (!game){
+                game=true;
+                inital.style.color="darkred";
+
+                btn.textContent="Guess Word";
+                guess.classList.toggle('tukss');
+                newV=createWord();
+                randomV=jumbkeWord(newV.split(""));
+                console.log(randomV);
+                inital.innerHTML='Arrange the word \''+ randomV +'\'';
+                }
+
+                else{
+                    let inputWord=guess.value;
+                    if (inputWord==newV){
+                        console.log('correct');
+                        game=false;
+                        inital.innerHTML='Super! Tu atbildēji pareizi. It is ${newV}';
+                        inital.style.color='darkviolet';
+                        sc+=5;
+                        score.innerHTML=sc;
+                        guess.classList.toggle('tukss');
+                        btn.innerHTML="";
+                    }
+                    else{
+                        console.log('Nepariezi');
+                        inital.innerHTML="Varbūt veiksies nākamajā reizē! '${randomV}'";
+                        inital.style.color='red';
+                        btn.innerHTML='Vēlreiz';
+                        guess.value="";
+                        guess.classList.toggle('tukss');
+                    }
+
+                }
+        })
+        //     newWord:"",
+        //     newImage:"",
+        //     viltigsVards:"",
+        //     gameContinue: true,
+        //     answered:[] //atlasa atrisinātos vārdus
+
+        //     },
+        //     methods:{
+        //     getRandomWord()
+        //     {
+        //         if(this.allWords.length>0)//nosacījums pārtrauks darboties, kad visi vārdi būs atminēti
+        //         {
+        //             let n=Math.floor(Math.random()*this.allWords.length);//pēc nejaušības principa ģenerē skaitli, lai izvēlētos vārdu no masīva
+                    
+        //             this.newWord=this.allWords[n].title;// nejauši izvēlētā masīva indeksa vārds
+        //             this.newImage=this.allWords[n].img;// nejauši izvēlētā masīva indeksa attēls
+
+        //             this.allWords.splice(n,1);// noņem izvēlēto vārdu no apgabala, lai tas spēles laikā neatkārtojas
+
+        //             this.viltigsVards=this.scramble(this.newWord.split(""));//pārvērš nejauši izvēlētā indeksa vārdu par burtu masīvu un izpilda burtu secības sajaukšanas f-ciju
+
+
+        //         }
+        //         else
+        //         {
+        //             this.gameContinue=false;//Aptur spēli līdzko visi vārdi ir atrisināti
+        //         }
+        //     },
+        //     scramble(arr)
+        //     {
+        //         let viltigs=arr.sort();//sajauc burtus
+        //             viltigs=viltigs.reverse();//apgriež burtu pozīcijas
+        //         return viltigs.join("");//izvada apvienoto vārdu simbolu virkni
+
+        //     }
+        // },
+        // created()
+        // {
+        //     this.getRandomWord();
+        // }
+        // });
     </script>
 </body>
 </html>
