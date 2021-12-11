@@ -75,6 +75,7 @@ button{
     /*justify-content: center;
     align-items: center;*/
     text-align: center;
+    color: #fccdd0;
 }
 .burtu-koferis{
     /*width: 50%;*/
@@ -95,7 +96,7 @@ button{
     grid-column: 2;
     color:#858383;
     font-size: 16px;
-    font-weight: :100;
+    font-weight: 100;
 }
 input.tukss{
     grid-column: 2;
@@ -123,6 +124,41 @@ input.tukss{
 }
 .bilde{
     width: 50%;
+}
+
+.padoms{
+    grid-column: 3;
+    grid-row: 3;
+    width: 80px;
+    height: 80px;
+    border-radius: 100px;
+    outline: none;
+    color: #858383;
+    background: #d4c4d2;
+    font-family: Arial, sans-serif;
+    border: solid 2px #ac9eaa;
+    font-size: 12px;
+    line-height: 3.4;
+    justify-self: center;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0px 6px 8px 0px black;
+    transform: scale(1);
+    transition: all .5s ease;
+}
+
+.padoms:active{
+    transform: scale(0.9);
+    box-shadow: 0px 0px 0px 0px black;
+}
+
+.padoms-att{
+    width: 200px;
+    border-radius: 100%;
+    grid-column: 1;
+    grid-row: 1/5;
+    margin: 20px;
+    display: none;
 }
 .burti{
     display: inline-block;
