@@ -98,7 +98,7 @@ button{
     font-size: 16px;
     font-weight: 100;
 }
-input.tukss{
+.tukss{
     grid-column: 2;
     color:wheat;
     outline:none;
@@ -153,12 +153,13 @@ input.tukss{
 }
 
 .padoms-att{
+    display: block;
     width: 200px;
-    border-radius: 60%;
+    /*border-radius: 60%;*/
     grid-column: 1;
     grid-row: 1/5;
     margin: 20px;
-    /* display: none; */
+}
 }
 /* .burti{
     display: inline-block;

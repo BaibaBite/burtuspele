@@ -48,8 +48,12 @@
             </div>
             <div class="burtu-koferis">
                 <div class="score">
-                    Rezultāts
+                    REZULTĀTS
                     <h2 class="score-1">25</h2>
+                </div>
+                <div class="mistake">
+                    KĻŪDAS
+                    <h2 class="mistake-1">25</h2>
                 </div>
                 <p class="viltigs">VĀRDS:</p>
                 <input type="text" class="tukss">
@@ -59,10 +63,15 @@
                 <span class="pazinojums piezime-tris">SUPER! ŠĪ IR PAREIZĀ ATBILDE!</span> -->
                 <div id="bilde"></div>
                 <!-- <img class="padoms-att" id="bilde" src="newImage"> -->
-                <input type="submit" class="padoms" value="PADOMS?">
+                <!-- <input type="submit" class="padoms" value="PADOMS?"> -->
             </div>
         </div>
-        
+        <div id="end" class="content nodala">
+            <div class="content-title">
+                <h1>TU ZAUDĒJI!</h1>
+                <p class="zaud">TAVS REZULTĀTS IR: </p>
+            </div>
+        </div>
         <div id="top" class="content nodala">
             <div class="content-title">
                 <h1>TOP 10</h1>
@@ -93,10 +102,15 @@
         const guess=document.querySelector('.tukss');//input
         const btn=document.querySelector('.uzmini');//btn - poga, lai apstiprinātu darbības
         const hintBtn=document.querySelector('.padoms');
+        const zaudT=document.querySelector('.zaud');
         let score=document.querySelector('.score-1');
+        let mistake=document.querySelector('.mistake-1');
         const bilde=document.querySelector('#bilde');
         score.innerHTML=0;
+        mistake.innerHTML=0;
         let sc=0;
+        let m=0;
+        let end="";
         let game=false;
         let newV="";
         let randomV="";
@@ -104,7 +118,7 @@
 
         //vārdu masīvs
         const words=[
-                    {title: "AUTOBUSS", img: "atteli/A.png"},
+                    {title: "ASTOŅKĀJIS", img: "atteli/A.png"},
                     {title: "ĀBOLS", img: "atteli/ā.jpg"},
                     {title: "BALONS", img: "atteli/b.png"},
                     {title: "CĀLIS", img: "atteli/c.png"},
@@ -146,7 +160,6 @@
             console.log(random);
             console.log(newImage);
             return random;
-            // return newI;
         }
 
         const jumbkeWord=(el)=>{
@@ -172,6 +185,7 @@
                 console.log(newImage);
                 inital.innerHTML='SAKĀRTO BURTUS <br/>'+ randomV;
                 bilde.innerHTML='<img class="padoms-att" src="' +newImage+ '">';
+                bilde.style.display="block";
                 }
 
                 else{
@@ -181,10 +195,12 @@
                         game=false;
                         inital.innerHTML='SUPER! ' +newV+ ' IR PAREIZĀ ATBILDE.';
                         // inital.style.color='darkviolet';
-                        sc+=5;
+                        sc+=10;
                         score.innerHTML=sc;
                         guess.classList.toggle('tukss');
-                        btn.innerHTML="";
+                        bilde.style.display="none";
+                        btn.innerHTML="TURPINĀT";
+                        
                     }
                     else{
                         console.log('Nepariezi');
@@ -192,7 +208,15 @@
                         // inital.style.color='red';
                         btn.innerHTML='Vēlreiz';
                         guess.value="";
+                        m+=1;
+                        mistake.innerHTML=m;
                         guess.classList.toggle('tukss');
+                        if (m==3){
+                            console.log('ZAUDĒJI');
+                            end=atvertSadalu('end');
+                            zaudT.innerHTML='TAVS REZULTĀTS IR: <br/>'+ sc;
+
+                        }
                     }
 
                 }
