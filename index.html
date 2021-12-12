@@ -28,7 +28,7 @@
                 <p>NOSKAIDRO, CIK LABI TU ZINI BURTUS!</p>
                 <p>SPIED "SĀKT SPĒLI!", LAI PĀRBAUDĪTU SAVAS ZINĀŠANAS</p>
             </div>
-            <div id="poga-sakt"><button><a href="spele.html">SĀKT SPĒLI!</a></button></div>
+            <div id="poga-sakt"><button class="nav-link" onclick="atvertSadalu('spele')">SĀKT SPĒLI!</button></div>
         </div><!--lapas satura beigas-->
         
         <div id="noteikumi" class="content nodala">
@@ -54,10 +54,11 @@
                 <p class="viltigs">VĀRDS:</p>
                 <input type="text" class="tukss">
                 <button class="uzmini">SĀKT</button>
-                <span class="pazinojums piezime-viens">LŪDZU IERAKSTI ATBILDI!</span>
+                <!-- <span class="pazinojums piezime-viens">LŪDZU IERAKSTI ATBILDI!</span>
                 <span class="pazinojums piezime-divi">AK VAI! NEPAREIZA ATBILDE. MĒĢINI VĒLREIZ!</span>
-                <span class="pazinojums piezime-tris">SUPER! ŠĪ IR PAREIZĀ ATBILDE!</span>
-                <img class="padoms-att" src="">
+                <span class="pazinojums piezime-tris">SUPER! ŠĪ IR PAREIZĀ ATBILDE!</span> -->
+                <div id="bilde"></div>
+                <!-- <img class="padoms-att" id="bilde" src="newImage"> -->
                 <input type="submit" class="padoms" value="PADOMS?">
             </div>
         </div>
@@ -91,12 +92,15 @@
         const inital=document.querySelector('.viltigs');//start - izvada spēles logā tekstu un ģenerēto vārdu
         const guess=document.querySelector('.tukss');//input
         const btn=document.querySelector('.uzmini');//btn - poga, lai apstiprinātu darbības
+        const hintBtn=document.querySelector('.padoms');
         let score=document.querySelector('.score-1');
+        const bilde=document.querySelector('#bilde');
         score.innerHTML=0;
         let sc=0;
         let game=false;
         let newV="";
         let randomV="";
+        let newImage="";
 
         //vārdu masīvs
         const words=[
@@ -138,8 +142,11 @@
         const createWord=()=>{
             let number=Math.floor(Math.random()*words.length);
             let random=words[number].title;
-            //console.log(random.split(""));
+            newImage=words[number].img;
+            console.log(random);
+            console.log(newImage);
             return random;
+            // return newI;
         }
 
         const jumbkeWord=(el)=>{
@@ -162,7 +169,9 @@
                 newV=createWord();
                 randomV=jumbkeWord(newV.split(""));
                 console.log(randomV);
+                console.log(newImage);
                 inital.innerHTML='SAKĀRTO BURTUS <br/>'+ randomV;
+                bilde.innerHTML='<img class="padoms-att" src="' +newImage+ '">';
                 }
 
                 else{

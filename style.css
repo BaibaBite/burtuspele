@@ -154,13 +154,13 @@ input.tukss{
 
 .padoms-att{
     width: 200px;
-    border-radius: 100%;
+    border-radius: 60%;
     grid-column: 1;
     grid-row: 1/5;
     margin: 20px;
-    display: none;
+    /* display: none; */
 }
-.burti{
+/* .burti{
     display: inline-block;
     margin: 3px;
     background-color:#dfd5dd94;
@@ -185,9 +185,9 @@ input.tukss{
     color:#636161;
     border: 3px solid rgb(161, 159, 159);
     box-shadow: 2px 2px 2px grey;
-    transform: translateY(4px);
+    transform: translateY(4px); */
 }
-.pazinojums{
+/* .pazinojums{
     width: 90%;
     justify-self: center;
     border-radius: 20px;
@@ -195,7 +195,7 @@ input.tukss{
     font-size: 16px;
     color: #636161;
     display: none;
-}
+} */
 
 .Footer{
     /*grid-column: 1/4;*/
