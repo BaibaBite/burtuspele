@@ -46,7 +46,7 @@
             <div class="content-title">
                 <h1>CIK DAUDZ VĀRDU TU VARĒSI UZMINĒT?</h1>
                 <p>IZVĒLIES BURTU SKAITU: </p>
-                <input type="number" min="3" max="10" name="cik" value="3">
+                <input type="number" min="3" max="10" id="cik" value="3">
             </div>
             <div class="burtu-koferis">
                 <div class="score">
@@ -58,7 +58,7 @@
                     <h2 class="mistake-1">25</h2>
                 </div>
                 <p class="viltigs">VĀRDS:</p>
-                <input type="text" class="tukss">
+                <input type="text" class="tukss" id="tukss">
                 <button class="uzmini">SĀKT</button>
                 <!-- <span class="pazinojums piezime-viens">LŪDZU IERAKSTI ATBILDI!</span>
                 <span class="pazinojums piezime-divi">AK VAI! NEPAREIZA ATBILDE. MĒĢINI VĒLREIZ!</span>
@@ -111,13 +111,15 @@
         score.innerHTML=0;
         mistake.innerHTML=0;
         let sc=0;
-        let m=0;
+        let m=0;//skaita kļūdas
         let end="";
         let game=false;
         let newV="";
         let randomV="";
         let newImage="";
-        let n;
+        let n;//mainīgais burtu skaitam - paņem no input
+        let wordsN=[];
+        let number;
 
         //vārdu masīvs
         const words=[
@@ -155,11 +157,11 @@
                     {title: "ZĀBAKS", img: "atteli/z.png"},
                     {title: "ŽURKA", img: "atteli/ž.png"}
                 ];
-
+        //būs jāpārveido aizstājot words masīvu ar mazo masīvu
         const createWord=()=>{
-            let number=Math.floor(Math.random()*words.length);
-            let random=words[number].title;
-            newImage=words[number].img;
+            number=Math.floor(Math.random()*wordsN.length);
+            let random=wordsN[number].title;
+            newImage=wordsN[number].img;
             console.log(random);
             console.log(newImage);
             return random;
@@ -174,15 +176,28 @@
             }
             return el.join("");
         }
+        function limenis(){
+            wordsN=[];
+            for (let i=0; i<words.length; i++){
+
+                if (words[i].title.length==n){
+                    wordsN.push(words[i]);
+
+                }
+            }
+        }
 
         btn.addEventListener('click', function(){
             if (!game){
                 game=true;
-                n=document.querySelector()
+                n=document.getElementById("cik").value;
+                console.log(n);
                 // inital.style.color="darkred";
-
+                limenis();
+                console.log(wordsN[0]);
                 btn.textContent="MINĒT";
-                guess.classList.toggle('tukss');
+                // guess.classList.toggle('tukss');
+                document.getElementById("tukss").value="";
                 newV=createWord();
                 randomV=jumbkeWord(newV.split(""));
                 console.log(randomV);
@@ -193,7 +208,7 @@
                 }
 
                 else{
-                    let inputWord=guess.value;
+                    let inputWord=guess.value.toUpperCase();
                     if (inputWord==newV){
                         console.log('correct');
                         game=false;
@@ -201,7 +216,7 @@
                         // inital.style.color='darkviolet';
                         sc+=10;
                         score.innerHTML=sc;
-                        guess.classList.toggle('tukss');
+                        //izdzēš no wordsN masīva number ar splice
                         bilde.style.display="none";
                         btn.innerHTML="TURPINĀT";
                         
@@ -210,11 +225,12 @@
                         console.log('Nepariezi');
                         inital.innerHTML="MĒĢINI VĒLREIZ! " +randomV;
                         // inital.style.color='red';
+                        document.getElementById("tukss").value="";
                         btn.innerHTML='Vēlreiz';
                         guess.value="";
                         m+=1;
                         mistake.innerHTML=m;
-                        guess.classList.toggle('tukss');
+                        // guess.classList.toggle('tukss');
                         if (m==3){
                             console.log('ZAUDĒJI');
                             end=atvertSadalu('end');
