@@ -45,6 +45,8 @@
         <div id="spele" class="content nodala">
             <div class="content-title">
                 <h1>CIK DAUDZ VĀRDU TU VARĒSI UZMINĒT?</h1>
+                <p>IZVĒLIES BURTU SKAITU: </p>
+                <input type="number" min="3" max="10" name="cik" value="3">
             </div>
             <div class="burtu-koferis">
                 <div class="score">
@@ -115,6 +117,7 @@
         let newV="";
         let randomV="";
         let newImage="";
+        let n;
 
         //vārdu masīvs
         const words=[
@@ -175,6 +178,7 @@
         btn.addEventListener('click', function(){
             if (!game){
                 game=true;
+                n=document.querySelector()
                 // inital.style.color="darkred";
 
                 btn.textContent="MINĒT";
