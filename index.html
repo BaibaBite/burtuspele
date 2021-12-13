@@ -108,7 +108,7 @@
         let score=document.querySelector('.score-1');//attēlo iegūto punktu skaitu
         let mistake=document.querySelector('.mistake-1');//attēlo pieļauto kļūdu skaitu
         const bilde=document.querySelector('#bilde');//bildes vieta html
-        score.innerHTML=0;
+        score.innerHTML=0;//nonullēts rezultāts un kļūdas html dokumentā
         mistake.innerHTML=0;
         let sc=0;//skaita punktus
         let m=0;//skaita kļūdas
@@ -160,8 +160,8 @@
         //pēc nejaušības principa izvēlas no mazā masīva vārdu un attēlu
         const createWord=()=>{
             number=Math.floor(Math.random()*wordsN.length);//mainīgajam number piešķir nejauši izvēlētu mazā masīva indeksu
-            let random=wordsN[number].title;
-            newImage=wordsN[number].img;
+            let random=wordsN[number].title;//izveidots lokālais mainīgais random, kuram pieškirta mazā masīva title vērtība
+            newImage=wordsN[number].img;//globālam mainīgajam pieškirta mazā masīva img vērtība
             console.log(random);
             console.log(newImage);
             return random;
