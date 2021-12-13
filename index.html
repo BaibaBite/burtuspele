@@ -94,32 +94,32 @@
           var i;
           var x = document.getElementsByClassName("nodala");
           for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  
+            x[i].style.display = "none";  //visiem uzliek stilu neredzams
           }
-          document.getElementById(sadalasID).style.display = "block";  
+          document.getElementById(sadalasID).style.display = "block";  //blokam ar attiecīgo id nosaukumu nomaina stilu uz redzams 
         }
         
         //sākas spēles loga JavaScript
         const inital=document.querySelector('.viltigs');//start - izvada spēles logā tekstu un ģenerēto vārdu
         const guess=document.querySelector('.tukss');//input
         const btn=document.querySelector('.uzmini');//btn - poga, lai apstiprinātu darbības
-        const hintBtn=document.querySelector('.padoms');
-        const zaudT=document.querySelector('.zaud');
-        let score=document.querySelector('.score-1');
-        let mistake=document.querySelector('.mistake-1');
-        const bilde=document.querySelector('#bilde');
+        // const hintBtn=document.querySelector('.padoms');
+        const zaudT=document.querySelector('.zaud');//spēles beigu loga tekst - parāda punktu skaitu
+        let score=document.querySelector('.score-1');//attēlo iegūto punktu skaitu
+        let mistake=document.querySelector('.mistake-1');//attēlo pieļauto kļūdu skaitu
+        const bilde=document.querySelector('#bilde');//bildes vieta html
         score.innerHTML=0;
         mistake.innerHTML=0;
-        let sc=0;
+        let sc=0;//skaita punktus
         let m=0;//skaita kļūdas
         let end="";
         let game=false;
-        let newV="";
-        let randomV="";
-        let newImage="";
-        let n;//mainīgais burtu skaitam - paņem no input
-        let wordsN=[];
-        let number;
+        let newV="";//nejauši izvēlēts masīva vārds
+        let randomV="";//masīva vārds ar sajauktiem burtiem
+        let newImage="";//nejauši izvēlētā masīva vārda atbilstošais attēls
+        let n;//mainīgais burtu skaitam - paņem no lietotāja ievadītā input lauka
+        let wordsN=[];//mazais masīvs, kurā atlasīti vārdi, kas atbilst lietotāja ievadītajam burtu skaitam
+        let number;//mainīgais, kuram createWord piešķir nejauši izvēlētu mazā masīva indeksu
 
         //vārdu masīvs
         const words=[
@@ -157,84 +157,89 @@
                     {title: "ZĀBAKS", img: "atteli/z.png"},
                     {title: "ŽURKA", img: "atteli/ž.png"}
                 ];
-        //būs jāpārveido aizstājot words masīvu ar mazo masīvu
+        //pēc nejaušības principa izvēlas no mazā masīva vārdu un attēlu
         const createWord=()=>{
-            number=Math.floor(Math.random()*wordsN.length);
+            number=Math.floor(Math.random()*wordsN.length);//mainīgajam number piešķir nejauši izvēlētu mazā masīva indeksu
             let random=wordsN[number].title;
             newImage=wordsN[number].img;
             console.log(random);
             console.log(newImage);
             return random;
         }
-
+        //sajauc burtus izvēlētajā vārdā
         const jumbkeWord=(el)=>{
-            for (let i=el.length - 1; i >=0; i--){
-                let temp = el[i];
-                let j=Math.floor(Math.random()*(i+1));
-                el[i]=el[j];
+            for (let i=el.length - 1; i >=0; i--){//sākot no beigām iet caur random vārds (newV) burtiem
+                let temp = el[i];//veido masīvu no random vārda burtiem
+                let j=Math.floor(Math.random()*(i+1));//nejauši izvēlēts skaitlis, kas nepārsniedz vārda garumu
+                el[i]=el[j];//samaina vietām - aizstāj burta sākotmējo indeksu ar nejauši izvēlēto
                 el[j]=temp;
             }
-            return el.join("");
+            return el.join("");//apvieno visus masīva burtus
         }
+        //no lielā masīva (words) atlasa vārdus, kuru garums atbilst spēlētāja ievadītajam burtu skaitam
         function limenis(){
-            wordsN=[];
-            for (let i=0; i<words.length; i++){
+            wordsN=[]; //izveido mazo masīvu
+            for (let i=0; i<words.length; i++){//iet caur masīvu words
 
-                if (words[i].title.length==n){
-                    wordsN.push(words[i]);
+                if (words[i].title.length==n){//ja words ieraksta garums vienāds ar lietotāja ievadīto burtu skaitu
+                    wordsN.push(words[i]);//ievieto mazajā masīvā no lielā masīva
 
                 }
             }
         }
-
+        //kas notiek, kad nospiesta poga "Sākt"
         btn.addEventListener('click', function(){
             if (!game){
                 game=true;
-                n=document.getElementById("cik").value;
+                n=document.getElementById("cik").value;//no input loga nolasa burtu skaitu
                 console.log(n);
-                // inital.style.color="darkred";
-                limenis();
+                limenis();//f-cija limenis izveido mazo masīvu ar vārdiem, kuru garums atbilst lietotjāja ievadītajam
                 console.log(wordsN[0]);
-                btn.textContent="MINĒT";
-                // guess.classList.toggle('tukss');
-                document.getElementById("tukss").value="";
-                newV=createWord();
-                randomV=jumbkeWord(newV.split(""));
+                btn.textContent="MINĒT";//nomaina pogas teikstu no Sākt uz Minēt
+                document.getElementById("tukss").value="";//iztukšo input loga saturu
+                newV=createWord();//mainīgajam newV tiek pēc nejaušības principa izvēlēts vārds
+                randomV=jumbkeWord(newV.split(""));//sajauc mainīgā newV piešķirtā vārda burtu secību
                 console.log(randomV);
                 console.log(newImage);
-                inital.innerHTML='SAKĀRTO BURTUS <br/>'+ randomV;
-                bilde.innerHTML='<img class="padoms-att" src="' +newImage+ '">';
-                bilde.style.display="block";
+                inital.innerHTML='SAKĀRTO BURTUS <br/>'+ randomV;//aizstāj html <p class="vitigs"> tekstu ar sajaukto vārdu
+                bilde.innerHTML='<img class="padoms-att" src="' +newImage+ '">';//blokā <div class="bilde"> ievieto randoma attēlu
+                bilde.style.display="block";//parāda attēlu
                 }
 
                 else{
-                    let inputWord=guess.value.toUpperCase();
-                    if (inputWord==newV){
+                    let inputWord=guess.value.toUpperCase();//mainīgajam inputWord pieškir lietotāja ievadīto vārdu. Pārvērš simbolus lielajos burtos
+                    if (inputWord==newV){ //ja lietotāja ievadītais vārds vienāds ar nejauši izvēlēto vārdu
                         console.log('correct');
                         game=false;
-                        inital.innerHTML='SUPER! ' +newV+ ' IR PAREIZĀ ATBILDE.';
-                        // inital.style.color='darkviolet';
-                        sc+=10;
-                        score.innerHTML=sc;
-                        //izdzēš no wordsN masīva number ar splice
-                        bilde.style.display="none";
-                        btn.innerHTML="TURPINĀT";
+                        inital.innerHTML='SUPER! ' +newV+ ' IR PAREIZĀ ATBILDE.';//html <p class="vitigs"> izvada tekstu, ka pareizi
+                        sc+=10;// pieskaita 10 punktus rezultātam
+                        score.innerHTML=sc;//html tekstā aizvieto veco rezultātu ar jauno
+
+
+
+
+                        //izdzēš no wordsN masīva number ar splice !!!!!!! P A P I L D I N Ā T ! ! !  !
+
+            
+            
+            
+            
+                        bilde.style.display="none";//paslēpj bildi
+                        btn.innerHTML="TURPINĀT";//nomaina pogas tekstu
                         
                     }
-                    else{
+                    else{//ja lietotāja ievadītais vārds un nejauši izvēlētais nesakrīt
                         console.log('Nepariezi');
-                        inital.innerHTML="MĒĢINI VĒLREIZ! " +randomV;
-                        // inital.style.color='red';
-                        document.getElementById("tukss").value="";
-                        btn.innerHTML='Vēlreiz';
-                        guess.value="";
-                        m+=1;
-                        mistake.innerHTML=m;
-                        // guess.classList.toggle('tukss');
-                        if (m==3){
+                        inital.innerHTML="MĒĢINI VĒLREIZ! " +randomV;//html <p class="vitigs"> izvada tekstu, ka jāmēģina vēlreiz
+                        document.getElementById("tukss").value="";//izdzēš input loga saturu
+                        btn.innerHTML='Vēlreiz';//nomaina pogas saturu
+                        guess.value="";//nodzēš lietotāja iepriekš ievadīto vārdu
+                        m+=1;//pieskaita 1 punktu pie kļūdām
+                        mistake.innerHTML=m;//html tekstā aizvieto veco kļudu skaitu ar jauno
+                        if (m==3){//ja kļūdu skaits vienāds ar 3
                             console.log('ZAUDĒJI');
-                            end=atvertSadalu('end');
-                            zaudT.innerHTML='TAVS REZULTĀTS IR: <br/>'+ sc;
+                            end=atvertSadalu('end');//atver bloku beigas un paslēpj spēles logu
+                            zaudT.innerHTML='TAVS REZULTĀTS IR: <br/>'+ sc;//beigu logā parāda iegūto punktu skaitu
 
                         }
                     }
