@@ -94,27 +94,44 @@ button{
     text-align: center;
     border:solid 2px #dfd5dd94;
 }
-<<<<<<< Updated upstream
-=======
+
+
+.score{
+    grid-column: 1;
+    grid-row: 1;
+}
+
 .score{
     grid-column: 1;
     grid-row: 1;
 }
 .mistake{
+    grid-column: 3;
+    grid-row: 1;
+}
+
+.mistake{
     grid-column: 1;
     grid-row: 3;
 }
->>>>>>> Stashed changes
+
 .viltigs{
     grid-column: 2;
+    grid-row: 1;
     color:#858383;
     font-size: 16px;
     font-weight: 100;
 }
-<<<<<<< Updated upstream
+
+
+.tukss{
+    grid-column: 2;
+    grid-row: 2;
+
+
 input.tukss{
     grid-column: 2;
-=======
+
 
 .mikslis{
         grid-column: 2;
@@ -127,7 +144,7 @@ input.tukss{
 .tukss{
     grid-column: 2;
     grid-row: 3;
->>>>>>> Stashed changes
+
     color:wheat;
     outline:none;
     border-radius: 10px;
@@ -136,14 +153,20 @@ input.tukss{
     padding-left:25px;
 }
 
+
+.uzmini:hover, input.padoms:hover{cursor: pointer;}/*peles kursora izskats*/
+
+.uzmini{
+    grid-column: 2;
+    grid-row: 3;
+
 /*button.uzmini:hover, input.padoms:hover{cursor: pointer;}*/
 
 .uzmini{
     grid-column: 2;
-<<<<<<< Updated upstream
-=======
+
     grid-row: 4;
->>>>>>> Stashed changes
+
     margin-bottom:20px;
     margin-top: 20px;
     color:#858383;
@@ -154,14 +177,26 @@ input.tukss{
     font-size: 14px;
     text-align: center;
 }
+
+#bilde{
+    width: 40%;
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.padoms{
+    grid-column: 3;
+    grid-row: 3;
+    width: 80px;
+    height: 80px;
+=======
 .bilde{
-<<<<<<< Updated upstream
+
     width: 50%;
 =======
     width: 40%;
     grid-column: 3;
     grid-row: 1;
->>>>>>> Stashed changes
 }
 
 
@@ -170,6 +205,7 @@ input.tukss{
     /*grid-row: 3;*/
     width: 40px;
     /*height: 40px;*/
+
     border-radius: 100px;
     outline: none;
     color: #858383;
@@ -189,11 +225,24 @@ input.tukss{
 .padoms:active{
     transform: scale(0.9);
     box-shadow: 0px 0px 0px 0px black;
+
+}
+
+.padoms-att{
+    display: block;
+    width: 200px;
+    /*border-radius: 60%;*/
+    grid-column: 3;
+    grid-row: 3;
+    margin: 20px;
+}
+/* .burti{
+
 }
 
 .padoms-att{
     width: 200px;
-<<<<<<< Updated upstream
+
     border-radius: 100%;
     grid-column: 1;
     grid-row: 1/5;
@@ -201,14 +250,14 @@ input.tukss{
     /*display: none;*/
 }
 .burti{
-=======
+
     /*border-radius: 60%;*/
    /* grid-column: 3;
     grid-row: 3;
     margin: 20px;
 } */
 /* .burti{
->>>>>>> Stashed changes
+
     display: inline-block;
     margin: 3px;
     background-color:#dfd5dd94;
@@ -233,20 +282,25 @@ input.tukss{
     color:#636161;
     border: 3px solid rgb(161, 159, 159);
     box-shadow: 2px 2px 2px grey;
-    transform: translateY(4px);
+    transform: translateY(4px); */
 }
-.pazinojums{
+/* .pazinojums{
     width: 90%;
     justify-self: center;
     border-radius: 20px;
     padding: 5px;
     font-size: 16px;
     color: #636161;
+
+    display: none;
+} */
+
     /*display: none;*/
 }
 
+
 .Footer{
-    /*grid-column: 1/4;*/
+    grid-column: 1/4;
     position: relative;
     width:auto;
     left: 0;
