@@ -77,12 +77,11 @@ button{
     text-align: center;
     color: #fccdd0;
 }
-
 .burtu-koferis{
     /*width: 50%;*/
     grid-column: 1/4;
     /*padding: 30px;*/
-    margin: 0px 100px 100px 100px;
+    margin: 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /*margin: 0 auto;
@@ -92,25 +91,34 @@ button{
     justify-content: center;
     align-items: center;
     text-align: center;
-    border:solid 2px #dfd5dd94;
 }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 =======
+=======
+>>>>>>> parent of 0469e66 (Merge branch 'main' into Sajauc-burtus)
 .score{
     grid-column: 1;
     grid-row: 1;
 }
 .mistake{
+<<<<<<< HEAD
     grid-column: 1;
     grid-row: 3;
 }
 >>>>>>> Stashed changes
+=======
+    grid-column: 3;
+    grid-row: 1;
+}
+>>>>>>> parent of 0469e66 (Merge branch 'main' into Sajauc-burtus)
 .viltigs{
     grid-column: 2;
     color:#858383;
     font-size: 16px;
     font-weight: 100;
 }
+<<<<<<< HEAD
 <<<<<<< Updated upstream
 input.tukss{
     grid-column: 2;
@@ -128,6 +136,12 @@ input.tukss{
     grid-column: 2;
     grid-row: 3;
 >>>>>>> Stashed changes
+=======
+
+.tukss{
+    grid-column: 2;
+    grid-row: 2;
+>>>>>>> parent of 0469e66 (Merge branch 'main' into Sajauc-burtus)
     color:wheat;
     outline:none;
     border-radius: 10px;
@@ -136,6 +150,7 @@ input.tukss{
     padding-left:25px;
 }
 
+<<<<<<< HEAD
 /*button.uzmini:hover, input.padoms:hover{cursor: pointer;}*/
 
 .uzmini{
@@ -144,6 +159,13 @@ input.tukss{
 =======
     grid-row: 4;
 >>>>>>> Stashed changes
+=======
+.uzmini:hover, input.padoms:hover{cursor: pointer;}/*peles kursora izskats*/
+
+.uzmini{
+    grid-column: 2;
+    grid-row: 3;
+>>>>>>> parent of 0469e66 (Merge branch 'main' into Sajauc-burtus)
     margin-bottom:20px;
     margin-top: 20px;
     color:#858383;
@@ -154,6 +176,7 @@ input.tukss{
     font-size: 14px;
     text-align: center;
 }
+<<<<<<< HEAD
 .bilde{
 <<<<<<< Updated upstream
     width: 50%;
@@ -170,6 +193,19 @@ input.tukss{
     /*grid-row: 3;*/
     width: 40px;
     /*height: 40px;*/
+=======
+#bilde{
+    width: 40%;
+    grid-column: 3;
+    grid-row: 3;
+}
+
+.padoms{
+    grid-column: 3;
+    grid-row: 3;
+    width: 80px;
+    height: 80px;
+>>>>>>> parent of 0469e66 (Merge branch 'main' into Sajauc-burtus)
     border-radius: 100px;
     outline: none;
     color: #858383;
@@ -193,6 +229,7 @@ input.tukss{
 
 .padoms-att{
     width: 200px;
+<<<<<<< HEAD
 <<<<<<< Updated upstream
     border-radius: 100%;
     grid-column: 1;
@@ -209,6 +246,14 @@ input.tukss{
 } */
 /* .burti{
 >>>>>>> Stashed changes
+=======
+    /*border-radius: 60%;*/
+    grid-column: 3;
+    grid-row: 3;
+    margin: 20px;
+}
+/* .burti{
+>>>>>>> parent of 0469e66 (Merge branch 'main' into Sajauc-burtus)
     display: inline-block;
     margin: 3px;
     background-color:#dfd5dd94;
@@ -242,8 +287,13 @@ input.tukss{
     padding: 5px;
     font-size: 16px;
     color: #636161;
+<<<<<<< HEAD
     /*display: none;*/
 }
+=======
+    display: none;
+} */
+>>>>>>> parent of 0469e66 (Merge branch 'main' into Sajauc-burtus)
 
 .Footer{
     /*grid-column: 1/4;*/
