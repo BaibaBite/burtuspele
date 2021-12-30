@@ -36,15 +36,23 @@
                 <h1>NOTEIKUMI</h1>
             </div>
             <div class="content-text">
-                <p>NOSKAIDRO, CIK LABI TU ZINI BURTUS!</p>
+                <p>NOSKAIDRO, CIK DAUDZ VĀRDU TU VARI PAREIZI SALIKT.</p>
                 <p>SAKĀRTO BURTUS PAREIZĀ SECĪBĀ, LAI IEGŪTU ATTĒLĀ REDZAMĀS LIETAS NOSAUKUMU.</p>
                 <p>PAR KATRU PAREIZU VĀRDU 10 PUNKTI.</p>
+                <p>VARI KĻŪDĪTIES TRĪS REIZES.</p>
             </div>
         </div>
         
         <div id="spele" class="content nodala">
             <div class="content-title">
                 <h1>CIK DAUDZ VĀRDU TU VARĒSI UZMINĒT?</h1>
+<<<<<<< Updated upstream
+=======
+            </div>
+            <div class="content-text" id="burtuSkaits">
+                <p>IZVĒLIES BURTU SKAITU: </p>
+                <input type="number" min="3" max="10" id="cik" value="3">
+>>>>>>> Stashed changes
             </div>
             <div class="burtu-koferis">
                 <div class="score">
@@ -52,6 +60,7 @@
                     <h2 class="score-1">25</h2>
                 </div>
                 <p class="viltigs">VĀRDS:</p>
+<<<<<<< Updated upstream
                 <input type="text" class="tukss">
                 <button class="uzmini">SĀKT SPĒLI</button>
                 <span class="pazinojums piezime-viens">LŪDZU IERAKSTI ATBILDI!</span>
@@ -59,6 +68,18 @@
                 <span class="pazinojums piezime-tris">SUPER! ŠĪ IR PAREIZĀ ATBILDE!</span>
                 <img class="padoms-att" src="">
                 <input click="hint" type="submit" class="padoms" value="PADOMS?">
+=======
+                <p class= "mikslis"></p>
+                <input type="text" class="tukss" id="tukss">
+                <button class="uzmini">SĀKT</button>
+                <div id="bilde" class="bilde"></div>
+            </div>
+        </div>
+        <div id="end" class="content nodala">
+            <div class="content-title">
+                <h1>TU ZAUDĒJI!</h1>
+                <p class="zaud">TAVS REZULTĀTS IR: </p>
+>>>>>>> Stashed changes
             </div>
         </div>
         
@@ -93,6 +114,7 @@
         
         //sākas spēles loga JavaScript
         const inital=document.querySelector('.viltigs');//start - izvada spēles logā tekstu un ģenerēto vārdu
+        const sajaukts=document.querySelector('.mikslis');
         const guess=document.querySelector('.tukss');//input
         const btn=document.querySelector('.uzmini');//btn - poga, lai apstiprinātu darbības
         let score=document.querySelector('.score-1');
@@ -159,6 +181,7 @@
             return el.join("");
         }
 
+<<<<<<< Updated upstream
         btn.addEventListener('click', function(){
             if (!game){
                 game=true;
@@ -170,6 +193,34 @@
                 randomV=jumbleWord(newV.split(""));
                 console.log(randomV);
                 inital.innerHTML='SAKĀRTO BURTUS: \''+ randomV +'\'';
+=======
+                if (words[i].title.length==n){//ja words ieraksta garums vienāds ar lietotāja ievadīto burtu skaitu
+                    wordsN.push(words[i]);//ievieto mazajā masīvā no lielā masīva
+                    
+                }
+            }
+        }
+        
+        //kas notiek, kad nospiesta poga "Sākt"
+        btn.addEventListener('click', function(){
+            if (!game){
+                game=true;
+                n=document.getElementById("cik").value;//no input loga nolasa burtu skaitu
+                console.log(n);
+                // document.getElementById("burtuSkaits").style.display = "none";
+                limenis();//f-cija limenis izveido mazo masīvu ar vārdiem, kuru garums atbilst lietotjāja ievadītajam
+                console.log(wordsN[0]);
+                btn.textContent="MINĒT";//nomaina pogas teikstu no Sākt uz Minēt
+                document.getElementById("tukss").value="";//iztukšo input loga saturu
+                newV=createWord();//mainīgajam newV tiek pēc nejaušības principa izvēlēts vārds
+                randomV=jumbkeWord(newV.split(""));//sajauc mainīgā newV piešķirtā vārda burtu secību
+                console.log(randomV);
+                console.log(newImage);
+                inital.innerHTML='SAKĀRTO BURTUS:';
+                sajaukts.innerHTML=randomV;//aizstāj html <p class="vitigs"> tekstu ar sajaukto vārdu
+                bilde.innerHTML='<img class="padoms-att" src="' +newImage+ '">';//blokā <div class="bilde"> ievieto randoma attēlu
+                bilde.style.display="block";//parāda attēlu
+>>>>>>> Stashed changes
                 }
 
                 else{
@@ -177,12 +228,35 @@
                     if (inputWord==newV){
                         console.log('correct');
                         game=false;
+<<<<<<< Updated upstream
                         inital.innerHTML="SUPER! " +newV+ " IR PAREIZĀ ATBILDE.";
                         inital.style.color='darkviolet';
                         sc+=5;
                         score.innerHTML=sc;
                         guess.classList.toggle('tukss');
                         btn.innerHTML="";
+=======
+                        inital.innerHTML='SUPER! ' +newV+ ' IR PAREIZĀ ATBILDE.';//html <p class="vitigs"> izvada tekstu, ka pareizi
+                            sajaukts.innerHTML=" ";
+                        sc+=10;// pieskaita 10 punktus rezultātam
+                        score.innerHTML=sc;//html tekstā aizvieto veco rezultātu ar jauno
+
+
+
+
+                        //izdzēš no wordsN masīva number ar splice 
+                        
+                        //     !!!!!!! P A P I L D I N Ā T ! ! !  !
+                        //wordsN.splice(number, 1);
+                        console.log(number);
+            
+            
+            
+            
+                        bilde.style.display="none";//paslēpj bildi
+                        btn.innerHTML="TURPINĀT";//nomaina pogas tekstu
+                        
+>>>>>>> Stashed changes
                     }
                     else{
                         console.log('Nepariezi');

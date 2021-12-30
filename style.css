@@ -77,11 +77,12 @@ button{
     text-align: center;
     color: #fccdd0;
 }
+
 .burtu-koferis{
     /*width: 50%;*/
     grid-column: 1/4;
     /*padding: 30px;*/
-    margin: 100px;
+    margin: 0px 100px 100px 100px;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     /*margin: 0 auto;
@@ -91,15 +92,42 @@ button{
     justify-content: center;
     align-items: center;
     text-align: center;
+    border:solid 2px #dfd5dd94;
 }
+<<<<<<< Updated upstream
+=======
+.score{
+    grid-column: 1;
+    grid-row: 1;
+}
+.mistake{
+    grid-column: 1;
+    grid-row: 3;
+}
+>>>>>>> Stashed changes
 .viltigs{
     grid-column: 2;
     color:#858383;
     font-size: 16px;
     font-weight: 100;
 }
+<<<<<<< Updated upstream
 input.tukss{
     grid-column: 2;
+=======
+
+.mikslis{
+        grid-column: 2;
+        grid-row: 2;
+        color:#858383;
+        font-size: 16px;
+        font-weight: 100;
+}
+
+.tukss{
+    grid-column: 2;
+    grid-row: 3;
+>>>>>>> Stashed changes
     color:wheat;
     outline:none;
     border-radius: 10px;
@@ -112,6 +140,10 @@ input.tukss{
 
 .uzmini{
     grid-column: 2;
+<<<<<<< Updated upstream
+=======
+    grid-row: 4;
+>>>>>>> Stashed changes
     margin-bottom:20px;
     margin-top: 20px;
     color:#858383;
@@ -123,15 +155,21 @@ input.tukss{
     text-align: center;
 }
 .bilde{
+<<<<<<< Updated upstream
     width: 50%;
+=======
+    width: 40%;
+    grid-column: 3;
+    grid-row: 1;
+>>>>>>> Stashed changes
 }
 
 
 .padoms{
     grid-column: 3;
-    grid-row: 3;
-    width: 80px;
-    height: 80px;
+    /*grid-row: 3;*/
+    width: 40px;
+    /*height: 40px;*/
     border-radius: 100px;
     outline: none;
     color: #858383;
@@ -155,6 +193,7 @@ input.tukss{
 
 .padoms-att{
     width: 200px;
+<<<<<<< Updated upstream
     border-radius: 100%;
     grid-column: 1;
     grid-row: 1/5;
@@ -162,6 +201,14 @@ input.tukss{
     /*display: none;*/
 }
 .burti{
+=======
+    /*border-radius: 60%;*/
+   /* grid-column: 3;
+    grid-row: 3;
+    margin: 20px;
+} */
+/* .burti{
+>>>>>>> Stashed changes
     display: inline-block;
     margin: 3px;
     background-color:#dfd5dd94;
