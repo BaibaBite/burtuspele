@@ -8,17 +8,6 @@
     <title>Burtu spēle mazajiem</title>
 </head>
 <body>
-    <script>
-        //f-cija, kas pēc navigācijas pogas nospiešanas atver atbilstošo klasi un paslēpj pārējās
-        function atvertSadalu(sadalasID) {
-          var i;
-          var x = document.getElementsByClassName("nodala");
-          for (i = 0; i < x.length; i++) {
-            x[i].style.display = "none";  //visiem uzliek stilu neredzams
-          }
-          document.getElementById(sadalasID).style.display = "block";  //blokam ar attiecīgo id nosaukumu nomaina stilu uz redzams 
-        }
-    </script>
     <div class="page">
         <div class="Header">
             <h1 class="header-title">Burto</h1>
@@ -158,6 +147,7 @@ Sajauc-burtus
         let wordsN=[];//mazais masīvs, kurā atlasīti vārdi, kas atbilst lietotāja ievadītajam burtu skaitam
         let number;//mainīgais, kuram createWord piešķir nejauši izvēlētu mazā masīva indeksu
 
+        let score=document.querySelector('.score-1');
         let hint=document.querySelector('.padoms');//poga padomiņiem
         score.innerHTML=0;
         let sc=0;
